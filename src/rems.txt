@@ -1,0 +1,5 @@
+# init firebase ==>> {
+    1. yarn add firebase & init SDK
+    2. const firebaseApp = firebase.initializeApp(firebaseConfig);
+        export const auth = firebase.auth();
+}
