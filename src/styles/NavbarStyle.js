@@ -8,6 +8,9 @@ export const Nav = styled.nav`
 	display: flex;
 	align-items: center;
 	gap: ${gaps.gap1};
+	position: sticky;
+	top: 0;
+	z-index: 9999;
 `;
 
 export const Fig = styled.figure`
@@ -59,6 +62,14 @@ export const UserOptions = styled.div`
 	display: flex;
 	gap: ${gaps.gap1};
 	color: ${colors.white};
+
+	.user__cart {
+		color: ${colors.white};
+		display: flex;
+		/* justify-content: center; */
+		align-items: center;
+		/* height: 100%; */
+	}
 `;
 
 export const Option = styled.div`
@@ -80,10 +91,13 @@ export const ItemsBasket = styled.div`
 	align-items: center;
 	margin-right: 15px;
 	gap: 5px;
+	color: ${colors.white};
 
 	.basket__icon {
 		font-size: 1.9rem;
+		fill: ${colors.white};
 	}
 	.basket__count {
+		color: ${colors.white};
 	}
 `;
