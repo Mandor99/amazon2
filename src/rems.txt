@@ -11,6 +11,7 @@
     **. build header(slider)
     **. build products
     ** build ShoppingCart comp
+    ** logIn / signUp pages
 }
 
 **generate stars depends on number ==>> Array(n).fill('').map((_,i) => <p>star</p>)
@@ -23,4 +24,17 @@
 
 #4. routing pages and navbar
 
-// ** global state => context  api ==>> {}
+#5. global state for products => context  api ==>> {
+    a. [create context, provider, consume with useContext(), reducer file[state={shoppingCart:[]}, reducer, actions[add_product, remove_cart]]]
+    b. useMemo() ==>> for more optimization(cache old values) for provider value
+    c. dispatch => ({add_product, {data}}) onCLick add_BTN_product
+}
+
+** shoppingCart count depends on shoppingCart[].length and get Total price
+** shoppingCart products view.
+
+#6. singIn / signUp with firebase auth. + {inputs state + submit Function + validation confirm password & username }
+
+#7. make a listener for the user (onAuthStateChange((user) => {})) in App + add user dispatches (set_user, logOut)to the reducer + make (signIn/signOut) in navbar depends on user state + and modify redirected page depends on user(!user => '/login') handle signOut() method 
+
+##. deploy
