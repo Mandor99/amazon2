@@ -10,10 +10,6 @@ import {
 import LogoImg from '../images/amazon-logo-white.png';
 import { ShoppingBasket, Search } from '@material-ui/icons';
 import {Link} from 'react-router-dom'
-import {useCart} from '../features/cartContext'
-import { signOut } from "firebase/auth";
-import {auth} from '../firebase'
-import ConditionalLink from '../routes/ConditionalLink'
 
 
 function Navbar() {
@@ -51,7 +47,7 @@ function Navbar() {
 				<Link to='/cart' className='user__cart'>
 					<ItemsBasket>
 						<ShoppingBasket className='basket__icon' />
-						<span className='basket__count'>{cart?.cart.length}</span>
+
 					</ItemsBasket>
 				</Link>
 			</UserOptions>
