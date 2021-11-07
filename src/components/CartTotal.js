@@ -3,12 +3,16 @@ import CurrencyFormat from 'react-currency-format';
 import { MainBtn } from '../styles/GlobalStyle';
 import { Total } from '../styles/ShoppingCartStyle';
 import {useCart} from '../features/cartContext'
-
+import {useHistory} from 'react-router-dom'
+import {getTotal} from '../features/cartReducer'
 
 function CartTotal() {
+
+    const history = useHistory()
     const {cart} = useCart()
-    const getTotal = (cart) => {
-        return cart.reduce((sum, product) => sum + Number(product.price), 0)
+
+    const paymentRedirect = () => {
+        cart?.cart.length > 0 && history.push('/payment')
     }
 
     return (
@@ -17,7 +21,7 @@ function CartTotal() {
             <div className='total__gift'>
                 <input type="checkbox" name="gift" id="gift" /><span>this order contains a gift</span>
             </div>
-            <MainBtn className='total__btn'>proceed to checkout</MainBtn>
+            <MainBtn onClick={paymentRedirect} className='total__btn'>proceed to checkout</MainBtn>
         </Total>}/>
             
     )

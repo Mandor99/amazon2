@@ -9,6 +9,9 @@ import SignUp from './pages/SignUp'
 import { onAuthStateChanged } from "firebase/auth";
 import {auth} from './firebase'
 import {useCart} from './features/cartContext'
+import Payment from './pages/Payment';
+import Orders from './pages/Orders'
+import ProtectedRoute from './routes/ProtectedRoute'
 
 
 function App() {
@@ -16,7 +19,7 @@ function App() {
 	const {cart, dispatch} = useCart()
 	useEffect(() => {
 		const UnSubscribe = onAuthStateChanged(auth, (user) => {
-			user ? dispatch({type: 'set_user', user : user}) : (dispatch({type: 'log_out'}))
+			user ? dispatch({type: 'set_user', user : user}) : dispatch({type: 'log_out'})
 		})
 		return () => {
 			UnSubscribe()
@@ -32,6 +35,8 @@ function App() {
 					<Route exact component={ShoppingCart} path='/cart'/>
 					<Route component={LogIn} path='/login'/>
 					<Route component={SignUp} path='/signup'/>
+					<ProtectedRoute component={Orders} path='/orders' />
+					<ProtectedRoute component={Payment} path='/payment'/>
 				</Switch>
 			</div>
 			

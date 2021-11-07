@@ -76,6 +76,7 @@ export const Option = styled.div`
 	display: flex;
 	flex-direction: column;
 	text-transform: capitalize;
+	cursor: pointer;
 
 	.user__msg {
 		font-size: 0.8rem;

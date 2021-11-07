@@ -6,7 +6,7 @@ import {useCart} from '../features/cartContext'
 
 
 
-function CartProducts({cart}) {
+function CartProducts({cart, title, showDeleteBtn}) {
 
     const {dispatch} = useCart()
 
@@ -15,9 +15,9 @@ function CartProducts({cart}) {
     }
     return (
         <>
-            <h3 className='items__title add-border'>Shopping Cart</h3>
+            <h3 className='items__title add-border'>{title}</h3>
             {
-                cart.map(({id, desc, rate, price, image}) => (
+                cart?.map(({id, desc, rate, price, image}) => (
                     <ProductDiv key={Math.random()} id={id}>
                         <ProductImage>
                             <img src={`${image}`} alt='product'/>
@@ -36,7 +36,9 @@ function CartProducts({cart}) {
                                     {<span className='price'>{val}</span>}
                                 </>}/>
                             </ProductCartPrice>
-                            <DeleteBtn onClick={() => removeProduct(id)}>Delete From Cart</DeleteBtn>
+                            {
+                                showDeleteBtn === true && <DeleteBtn onClick={() => removeProduct(id)}>Delete From Cart</DeleteBtn>
+                            }
                         </ProductDetails>
                     </ProductDiv>
                 ))

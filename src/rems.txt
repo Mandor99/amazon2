@@ -36,5 +36,42 @@
 #6. singIn / signUp with firebase auth. + {inputs state + submit Function + validation confirm password & username }
 
 #7. make a listener for the user (onAuthStateChange((user) => {})) in App + add user dispatches (set_user, logOut)to the reducer + make (signIn/signOut) in navbar depends on user state + and modify redirected page depends on user(!user => '/login') handle signOut() method 
+/****************************************************************/
+/****************************************************************/
 
-##. deploy
+#8. build payment page ==>> {
+    1. build UI =>[review items (from the cart) + payment method => (stripe)]
+    2. onClick proceed btn in subtotal
+    3. install stripe for react
+    4. follow the docs
+    ** useElement ==>> to pass secure info to stripe api in handleSubmit()
+    ** useStripe ==>> 
+    ** stripe event (e) e.empty => true if value is empty (https://stripe.com/docs/js/element/events/on_change?type=paymentElement)
+    ** [process] => to check if there's a payment operation is On to disable/enable pay Btn
+    5. use firebase clouds & express + stripe ==>> {
+        
+    }
+}
+
+** history.replace() ==>> if you don't want user can be able to go back to this page after leave it
+** to use env file in react ==>> {
+    it's exist by default in react not need a package => {
+        1. create .env file
+        2. start vars name with REACT_APP_VAR_NAME = ...
+        3. call it with => process.env.REACT_APP_VAR_NAME
+    }
+}
+// valid visa card for test only ==>> 4242 4242 4242 4242   42 42 424
+
+9. fireStore  ==>> to store the user's products (cart) ==>> users => userId => orders => paymentIntentId ==> set({cart, amount: pay...amount, created: pay....created})
+
+** don't forget to turn on the server
+
+10. create orders page to keep the products u buy in the view by fetching it from the DB (fireStore) not the client state
+
+Expected first argument to collection() to be a CollectionReference, a DocumentReference or FirebaseFirestore
+
+11. bonus ==>> {
+    protected routers
+}
+12. make responsive layout

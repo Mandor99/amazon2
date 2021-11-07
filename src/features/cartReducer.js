@@ -2,7 +2,10 @@
 export const cartState = {
     cart: [],
     user: null,
+}
 
+export const getTotal = (cart) => {
+    return cart.reduce((sum, product) => sum + Number(product.price), 0)
 }
 
 const cartReducer = (state = cartState, {type, product, id, user}) => {
@@ -19,6 +22,12 @@ const cartReducer = (state = cartState, {type, product, id, user}) => {
             return {
                 ...state,
                 cart: newCart
+            }
+
+        case 'empty_cart':
+            return {
+                ...state,
+                cart: []
             }
 
         case 'set_user': 

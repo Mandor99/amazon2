@@ -13,6 +13,7 @@ import {Link} from 'react-router-dom'
 import {useCart} from '../features/cartContext'
 import { signOut } from "firebase/auth";
 import {auth} from '../firebase'
+import ConditionalLink from '../routes/ConditionalLink'
 
 
 function Navbar() {
@@ -33,14 +34,14 @@ function Navbar() {
 					<Search className='nav__search--icon-search' />
 				</button>
 			</Form>
-			<UserOptions onClick={logOut}>
-				<Link to={!cart?.user && `/login`} className='user__cart'>
-					<Option>
+			<UserOptions>
+				<ConditionalLink to='/login' condition={!cart?.user} className='user__cart'>
+					<Option onClick={logOut}>
 						<span className='user__msg'>{`hello, ${cart?.user ? cart?.user.displayName : 'Amazony'}`}</span>
 						<h4 className='user__account'>{cart?.user ? `log out` : `log in`}</h4>
 					</Option>
-				</Link>
-				<Link to='/login' className='user__cart'>
+				</ConditionalLink>
+				<Link to='/orders' className='user__cart'>
 					<Option>
 						<span className='order__note'>returns </span>
 						<h4 className='user__orders'>&amp; orders</h4>
@@ -50,7 +51,7 @@ function Navbar() {
 				<Link to='/cart' className='user__cart'>
 					<ItemsBasket>
 						<ShoppingBasket className='basket__icon' />
-						<span className='basket__count'>{cart?.cart?.length}</span>
+						<span className='basket__count'>{cart?.cart.length}</span>
 					</ItemsBasket>
 				</Link>
 			</UserOptions>
