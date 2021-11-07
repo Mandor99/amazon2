@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from './GlobalStyle';
+
 
 export const Main = styled.main`
     display: flex;
@@ -30,6 +30,7 @@ export const ItemProducts = styled.section`
         font-weight: bold;
         font-size: 1.5rem;
 
+
     }
 `;
 
@@ -56,4 +57,4 @@ export const Total = styled.section`
     .total__btn {
         text-transform: capitalize;
     }
-`;
+

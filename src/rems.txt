@@ -11,6 +11,7 @@
     **. build header(slider)
     **. build products
     ** build ShoppingCart comp
+
 }
 
 **generate stars depends on number ==>> Array(n).fill('').map((_,i) => <p>star</p>)
@@ -23,4 +24,3 @@
 
 #4. routing pages and navbar
 
-// ** global state => context  api ==>> {}

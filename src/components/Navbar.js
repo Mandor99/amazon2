@@ -11,7 +11,12 @@ import LogoImg from '../images/amazon-logo-white.png';
 import { ShoppingBasket, Search } from '@material-ui/icons';
 import {Link} from 'react-router-dom'
 
+
 function Navbar() {
+	const {cart} = useCart()
+	
+	const logOut = () => cart?.user && signOut(auth)
+
 	return (
 		<Nav>
 			<Link to='/'>
@@ -26,19 +31,23 @@ function Navbar() {
 				</button>
 			</Form>
 			<UserOptions>
-				<Option>
-					<span className='user__msg'>hello, user</span>
-					<h4 className='user__account'>sign in</h4>
-				</Option>
-				<Option>
-					<span className='order__note'>returns </span>
-					<h4 className='user__orders'>&amp; orders</h4>
-				</Option>
+				<ConditionalLink to='/login' condition={!cart?.user} className='user__cart'>
+					<Option onClick={logOut}>
+						<span className='user__msg'>{`hello, ${cart?.user ? cart?.user.displayName : 'Amazony'}`}</span>
+						<h4 className='user__account'>{cart?.user ? `log out` : `log in`}</h4>
+					</Option>
+				</ConditionalLink>
+				<Link to='/orders' className='user__cart'>
+					<Option>
+						<span className='order__note'>returns </span>
+						<h4 className='user__orders'>&amp; orders</h4>
+					</Option>
+				</Link>
 				{/* <Option></Option> */}
 				<Link to='/cart' className='user__cart'>
 					<ItemsBasket>
 						<ShoppingBasket className='basket__icon' />
-						<span className='basket__count'>0</span>
+
 					</ItemsBasket>
 				</Link>
 			</UserOptions>
