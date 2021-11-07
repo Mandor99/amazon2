@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { colors, MainBtn } from './GlobalStyle';
-import { Rating, ProductPrice } from './ProductStyle';
 
 
 export const Main = styled.main`
@@ -31,10 +29,7 @@ export const ItemProducts = styled.section`
         text-transform: capitalize;
         font-weight: bold;
         font-size: 1.5rem;
-        
-        &.add-border {
-            border-bottom: 1px solid #ddd;
-        }
+
 
     }
 `;
@@ -62,48 +57,4 @@ export const Total = styled.section`
     .total__btn {
         text-transform: capitalize;
     }
-`;
 
-export const ProductDiv = styled.div`
-    border: 1px solid #E7E7E7;
-    margin-top: 12px;
-    padding: 12px;
-    display: flex;
-    gap: 12px;
-    /* align-items: center; */
-
-    &:first-of-type {
-        margin-top: 20px;
-    }
-`;
-
-/* const figSize = '280px'; */
-export const ProductImage = styled.figure`
-
-    img {
-        width: 280px;
-        height: 200px;
-        object-fit: contain;
-    }
-`;
-
-export const ProductDetails = styled.div`
-
-`;
-
-export const ProductDesc = styled.p``
-
-export const ProductRate = styled(Rating)`
-    padding-left: 0;
-    padding-right: 0;
-`;
-export const ProductCartPrice = styled(ProductPrice)`
-    padding-left: 0;
-    padding-right: 0;
-`;
-
-export const DeleteBtn = styled(MainBtn)`
-    text-transform: capitalize;
-    padding: 8px;
-    margin-top: 40px
-`
