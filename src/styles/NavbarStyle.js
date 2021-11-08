@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, gaps } from './GlobalStyle';
+import { colors, gaps, media } from './GlobalStyle';
 
 export const Nav = styled.nav`
 	height: 60px;
@@ -8,9 +8,26 @@ export const Nav = styled.nav`
 	display: flex;
 	align-items: center;
 	gap: ${gaps.gap1};
-	position: sticky;
-	top: 0;
+	/* position: sticky; */
+	/* top: 0; */
 	z-index: 9999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+
+	.nav__menu--mobile {
+		display: none;
+
+		${media.mobile} {
+			display: block;
+			margin-right: 10px;
+			margin-top: 5px;
+			cursor: pointer;
+		}
+		
+	}
 `;
 
 export const Fig = styled.figure`
@@ -21,6 +38,12 @@ export const Fig = styled.figure`
 		object-fit: contain;
 		width: 100%;
 		height: 100%;
+	}
+
+	${media.mobile} {
+		width: 65px;
+		margin: 5px 0 0 10px;
+		transform: scale(1.2);
 	}
 `;
 const radius = '5px';
@@ -70,6 +93,26 @@ export const UserOptions = styled.div`
 		align-items: center;
 		/* height: 100%; */
 	}
+	.basket__link {
+		${media.mobile} {
+			padding: 0 2rem;
+    		border-bottom: 1px solid rgba(255,255,255, .3);
+		}
+	}
+
+	${media.mobile} {
+		position: absolute;
+		background-color: rgba(0,0,0,.8);
+		top: 59px;
+		right: 0;
+		flex-direction: column;
+		height: 100vh;
+		padding: 1rem 0rem;
+		width: 45%;
+		transition: all .3s ease-in-out;
+		transform: ${({showNav}) => showNav ? 'translateX(0)' : 'translateX(100%)'};
+		/* width: ${({showNav}) => showNav ? '45%' : '0'}; */
+	}
 `;
 
 export const Option = styled.div`
@@ -84,6 +127,12 @@ export const Option = styled.div`
 
 	.order__note {
 		font-size: 0.8rem;
+	}
+
+	${media.mobile} {
+		border-bottom: 1px solid rgba(255,255,255,.3);
+    	width: 100%;
+    	padding: 0 2rem;
 	}
 `;
 

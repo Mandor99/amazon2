@@ -73,6 +73,14 @@ export const GlobalStyle = createGlobalStyle`
 	a {
 		text-decoration: none;
 	}
+
+    .App {
+        overflow-x: hidden;
+    }
+`;
+
+export const UnderNav = styled.div`
+    margin-top: 60px;
 `;
 
 export const MainBtn = styled.button`

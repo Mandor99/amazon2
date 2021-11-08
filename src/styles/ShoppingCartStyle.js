@@ -1,11 +1,15 @@
 import styled from 'styled-components'
-import { colors, MainBtn } from './GlobalStyle';
+import { colors, MainBtn, media } from './GlobalStyle';
 import { Rating, ProductPrice } from './ProductStyle';
 
 
 export const Main = styled.main`
     display: flex;
-    gap: 1rem
+    gap: 1rem;
+
+    ${media.mobile} {
+        flex-direction: column;
+    }
 `;
 
 export const Items = styled.section`
@@ -13,12 +17,17 @@ export const Items = styled.section`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    ${media.mobile} {
+        order: 1;
+    }
 `;
 
 export const Ad = styled.figure`
-padding: 2rem 1rem;
-width: 100%;
-background-color: ${colors.white};
+    padding: 2rem 1rem;
+    width: 100%;
+    background-color: ${colors.white};
+
     .ad__img {
         width: 100%;
     }
@@ -27,6 +36,7 @@ background-color: ${colors.white};
 export const ItemProducts = styled.section`
     background-color: ${colors.white};
     padding: 2rem 1rem;
+
     .items__title {
         text-transform: capitalize;
         font-weight: bold;
@@ -35,7 +45,10 @@ export const ItemProducts = styled.section`
         &.add-border {
             border-bottom: 1px solid #ddd;
         }
+    }
 
+    ${media.mobile} {
+        margin: 1rem;
     }
 `;
 
@@ -51,16 +64,28 @@ export const Total = styled.section`
 
     .total__title {
         text-transform: capitalize;
+
+        ${media.tab} {
+            font-size: .8rem;
+        }
     }
 
     .total__gift {
         display: flex;
         align-items: center;
         gap: 8px;
+
+        ${media.tab} {
+            font-size: .6rem;
+        }
     }
 
     .total__btn {
         text-transform: capitalize;
+
+        ${media.tab} {
+            font-size: .7rem;
+        }
     }
 `;
 
@@ -75,6 +100,10 @@ export const ProductDiv = styled.div`
     &:first-of-type {
         margin-top: 20px;
     }
+
+    ${media.mobile} {
+        flex-direction: column;
+    }
 `;
 
 /* const figSize = '280px'; */
@@ -84,6 +113,11 @@ export const ProductImage = styled.figure`
         width: 280px;
         height: 200px;
         object-fit: contain;
+        max-width: 100%;
+    }
+
+    ${media.mobile} {
+        text-align: center;
     }
 `;
 
@@ -105,5 +139,9 @@ export const ProductCartPrice = styled(ProductPrice)`
 export const DeleteBtn = styled(MainBtn)`
     text-transform: capitalize;
     padding: 8px;
-    margin-top: 40px
+    margin-top: 40px;
+
+    ${media.mobile} {
+        width: 100%;
+    }
 `
