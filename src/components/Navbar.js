@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
 	Fig,
 	Form,
@@ -8,7 +8,7 @@ import {
 	ItemsBasket,
 } from '../styles/NavbarStyle';
 import LogoImg from '../images/amazon-logo-white.png';
-import { ShoppingBasket, Search } from '@material-ui/icons';
+import { ShoppingBasket, Search, Menu } from '@material-ui/icons';
 import {Link} from 'react-router-dom'
 import {useCart} from '../features/cartContext'
 import { signOut } from "firebase/auth";
@@ -18,6 +18,7 @@ import ConditionalLink from '../routes/ConditionalLink'
 
 function Navbar() {
 	const {cart} = useCart()
+	const [showNav, setShowNav] = useState(false)
 	
 	const logOut = () => cart?.user && signOut(auth)
 
@@ -34,7 +35,7 @@ function Navbar() {
 					<Search className='nav__search--icon-search' />
 				</button>
 			</Form>
-			<UserOptions>
+			<UserOptions showNav={showNav}>
 				<ConditionalLink to='/login' condition={!cart?.user} className='user__cart'>
 					<Option onClick={logOut}>
 						<span className='user__msg'>{`hello, ${cart?.user ? cart?.user.displayName : 'Amazony'}`}</span>
@@ -48,13 +49,16 @@ function Navbar() {
 					</Option>
 				</Link>
 				{/* <Option></Option> */}
-				<Link to='/cart' className='user__cart'>
+				<Link to='/cart' className='user__cart basket__link'>
 					<ItemsBasket>
 						<ShoppingBasket className='basket__icon' />
 						<span className='basket__count'>{cart?.cart.length}</span>
 					</ItemsBasket>
 				</Link>
 			</UserOptions>
+			<div className='nav__menu--mobile' onClick={() => setShowNav(!showNav)}>
+				<Menu />
+			</div>
 		</Nav>
 	);
 }

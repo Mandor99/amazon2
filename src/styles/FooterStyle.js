@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from './GlobalStyle';
+import { colors, media } from './GlobalStyle';
 
 export const FooterTag = styled.footer`
     display: flex;
@@ -14,6 +14,10 @@ export const Rights = styled.div`
     .bold {
         text-transform: uppercase;
         font-weight: 600;
+    }
+
+    ${media.mobileSm} {
+        font-size: .7rem;
     }
 `;
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {MainBtn} from './GlobalStyle'
+import {MainBtn, media} from './GlobalStyle'
 
 export const Section = styled.section``;
 
@@ -9,6 +9,10 @@ export const StripeForm = styled.form`
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+
+    ${media.mobile} {
+        width: 100%;
+    }
 `;
 
 export const ErrorMsg = styled.p`
@@ -28,4 +32,12 @@ export const PayBtn = styled(MainBtn)``;
 
 export const TotalPrice = styled.h3`
     font-size: 1.3rem;
+
+    ${media.mobile} {
+        font-size: 1.2rem;
+    }
+
+    ${media.mobileSm} {
+        font-size: 1.1rem;
+    }
 `;

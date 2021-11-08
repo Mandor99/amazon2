@@ -9,6 +9,7 @@ export const CartProduct = styled.section`
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    z-index:5;
 `
 
 export const ProductImg = styled.figure`
@@ -24,7 +25,7 @@ export const ProductImg = styled.figure`
 export const Desc = styled.p`
     display: -webkit-box;
     overflow: hidden;
-	-webkit-line-clamp: 3; //one line
+	-webkit-line-clamp: 2; //one line
 	-webkit-box-orient: vertical;
     max-height: 172.8px;
     padding-right: 10px;

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from './GlobalStyle';
+import { colors, media } from './GlobalStyle';
 
 export const Fig = styled.figure`
     display: flex;
@@ -34,6 +34,14 @@ export const FormWrapper = styled.div`
         text-transform: capitalize;
         font-size: 2rem;
         margin-bottom: 15px;
+
+        ${media.mobileSm} {
+            font-size: 1.9rem;
+        }
+    }
+
+    ${media.mobileSm} {
+        width: 90%;
     }
 `;
 

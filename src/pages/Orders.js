@@ -5,6 +5,7 @@ import { onSnapshot, collection, query, orderBy } from 'firebase/firestore';
 import {useCart} from '../features/cartContext'
 import { Title } from '../styles/OrdersStyle';
 import Order from '../components/Order';
+import { UnderNav } from '../styles/GlobalStyle';
 
 
 function Orders() {
@@ -33,7 +34,10 @@ function Orders() {
     return (
         <>
             <Navbar />
-            <Title>{orders?.length > 0 ? 'Your Orders' : 'You Didn\'t make any order, yet!'}</Title>
+            <UnderNav>
+                <Title>{orders?.length > 0 ? 'Your Orders' : 'You Didn\'t make any order, yet!'}</Title>
+            </UnderNav>
+            
             {
                 orders.map(order => (
                     <Order order={order} key={order?.id}/>
