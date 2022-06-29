@@ -110,10 +110,14 @@ export const ProductDiv = styled.div`
 export const ProductImage = styled.figure`
 
     img {
-        width: 280px;
+        width: 250px;
         height: 200px;
         object-fit: contain;
-        max-width: 100%;
+        max-width: 250px;
+
+        ${media.mobile} {
+            max-width: 100%;
+        }
     }
 
     ${media.mobile} {

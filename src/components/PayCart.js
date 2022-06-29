@@ -33,13 +33,14 @@ function PayCart() {
                 // the end point from server expect the total val query param
                 url: `/payments/create?total=${getTotal(cart?.cart) * 100}`
             })
-            setClientSecretKey(data.clientSecret) // clientSecret will come from backend
+            setClientSecretKey(data?.clientSecret) // clientSecret will come from backend
             console.log(data)
         }
         getClientSecret()
+    // console.log('client secret >>> ',getTotal(cart?.cart)*100, clientSecretKey)
         
     }, [cart.cart])
-    console.log('client secret >>> ', clientSecretKey)
+    console.log('client secret >>> ',getTotal(cart?.cart)*100, clientSecretKey)
     const handleChange = (e) => {
         setDisabled(!e.complete)
         setError(e.error ? e.error.message : '')
@@ -89,7 +90,7 @@ function PayCart() {
                         }
                     }}/>
 
-                    {error && <ErrorMsg>{error}</ErrorMsg>}
+                    <span>{error && <ErrorMsg>{error}</ErrorMsg>}</span>
 
                     <CurrencyFormat value={getTotal(cart?.cart)} displayType={'text'} thousandSeparator={true} prefix={'$'} allowNegative={false} fixedDecimalScale={true} decimalScale={2} thousandSpacing={'3'} renderText={(val) => <PayBox>
                             <TotalPrice>Order Total: {val}</TotalPrice>

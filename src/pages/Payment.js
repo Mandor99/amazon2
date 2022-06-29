@@ -11,10 +11,11 @@ import { UnderNav } from '../styles/GlobalStyle';
 //out of comp not to render it every time with comp
 //this promise verify the key & connect with our app
 // const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_KEY}`)
-const stripePromise = loadStripe('pk_test_51JpsXMIT8Bb5uYq5oydpyjgqacxHVQF3cI9xDN11VlSpJjnCl3EHsJqhIk8xxxaoOKnI4HIdZzjD9tuJ4wHEbsEJ00fklYkn8s')
+const CSK = 'pk_test_51JpsXMIT8Bb5uYq5oydpyjgqacxHVQF3cI9xDN11VlSpJjnCl3EHsJqhIk8xxxaoOKnI4HIdZzjD9tuJ4wHEbsEJ00fklYkn8s'
+const stripePromise = loadStripe(CSK)
 
 function Payment() {
-    console.log(process.env.REACT_APP_STRIPE_KEY)
+    console.log(CSK)
     const {cart} = useCart()
     return (
         <>
